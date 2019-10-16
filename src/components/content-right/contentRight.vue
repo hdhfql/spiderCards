@@ -58,12 +58,13 @@ export default {
   },
   watch: {
     start: function () {
+      let timeGo;
       if (this.over) {// 时间到游戏结束
         this.$emit('pushTime', this.time);
         clearInterval(timeGo);
       }
       if (this.start) {
-        let timeGo = setInterval(() => {
+        timeGo = setInterval(() => {
           this.time--;
           if (this.time == 0) {
             clearInterval(timeGo);
